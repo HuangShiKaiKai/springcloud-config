@@ -10,6 +10,6 @@ spring:
 
 ---
 spring:
-  profiles: *
+  profiles: test
   application:
     name: springcloud-config-test
