@@ -12,17 +12,21 @@ mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
 
-#spring的配置
+#spring的相关配置
 spring:
-  profiles: dev
   application:
     name: springcloud-config-dept
   datasource:
-    type: com.alibaba.druid.pool.DruidDataSource #数据源
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/springcloud01?useSSL=false&useUnicode=true&characterEncoding=utf-8
+    type: com.alibaba.druid.pool.DruidDataSource  #数据源
+    driver-class-name: com.mysql.cj.jdbc.Driver      #mysql驱动
+    url: jdbc:mysql://192.168.1.199:3306/springcloud01?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
     username: root
     password: 123456
+    dbcp2:
+      min-idle: 5           #数据库连接池的最小维持连接数
+      initial-size: 5       #初始化连接数
+      max-total: 5          #最大连接数
+      max-wait-millis: 200  #等待连接获取的最大超时时间
 
 #Eureka的配置,服务注册到哪里
 eureka:
@@ -50,17 +54,21 @@ mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
 
-#spring的配置
+#spring的相关配置
 spring:
-  profiles: test
   application:
     name: springcloud-config-dept
   datasource:
-    type: com.alibaba.druid.pool.DruidDataSource #数据源
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/springcloud02?useSSL=false&useUnicode=true&characterEncoding=utf-8
+    type: com.alibaba.druid.pool.DruidDataSource  #数据源
+    driver-class-name: com.mysql.cj.jdbc.Driver      #mysql驱动
+    url: jdbc:mysql://192.168.1.199:3306/springcloud02?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
     username: root
     password: 123456
+    dbcp2:
+      min-idle: 5           #数据库连接池的最小维持连接数
+      initial-size: 5       #初始化连接数
+      max-total: 5          #最大连接数
+      max-wait-millis: 200  #等待连接获取的最大超时时间
 
 #Eureka的配置,服务注册到哪里
 eureka:
